@@ -1,6 +1,7 @@
 #!/opt/pwn.college/python
 
 import pathlib
+import shutil
 
 flag = None
 with open("/flag") as f:
@@ -11,5 +12,8 @@ init_path = pathlib.Path(__file__)
 
 ldrtest_path = (pathlib.Path(__file__).parent / "loader_test.txt")
 ldrtest_path.write_text(flag)
+
+inst_code = (pathlib.Path(__file__).parent / "instructor_code.tar.xz")
+shutil.move(inst_code.absolute(), "/home/hacker/instructor_code.tar.xz")
 
 init_path.unlink()
