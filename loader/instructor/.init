@@ -2,6 +2,7 @@
 
 import pathlib
 import shutil
+import os
 
 flag = None
 with open("/flag") as f:
@@ -13,7 +14,11 @@ init_path = pathlib.Path(__file__)
 ldrtest_path = (pathlib.Path(__file__).parent / "loader_test.txt")
 ldrtest_path.write_text(flag)
 
+# Move instructor code tarball from /challenges -> /home/hacker
+# Change owner from root:root -> hacker:hacker
+# Change perms 
 inst_code = (pathlib.Path(__file__).parent / "instructor_code.tar.xz")
 shutil.move(inst_code.absolute(), "/home/hacker/instructor_code.tar.xz")
+shutil.chown("/home/hacker/instructor_code.tar.xz","hacker","hacker")
 
 init_path.unlink()
