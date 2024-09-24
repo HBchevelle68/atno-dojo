@@ -21,4 +21,6 @@ inst_code = (pathlib.Path(__file__).parent / "instructor_code.tar.xz")
 shutil.move(inst_code.absolute(), "/home/hacker/instructor_code.tar.xz")
 shutil.chown("/home/hacker/instructor_code.tar.xz","hacker","hacker")
 
+shutil.unpack_archive("/home/hacker/instructor_code.tar.xz", "/home/hacker/instructor_code")
+
 init_path.unlink()
