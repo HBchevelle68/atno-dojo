@@ -24,10 +24,15 @@ ldrtest_path.write_text(flag)
 # Unpack the tarball (still root owned at this point)
 # Change owner from root:root -> hacker:hacker
 inst_code = (pathlib.Path(__file__).parent / "instructor_code.tar.xz")
+test_code = (pathlib.Path(__file__).parent / "test.tar.xz")
 shutil.move(inst_code.absolute(), "/home/hacker/instructor_code.tar.xz")
+shutil.move(test_code.absolute(), "/home/hacker/test.tar.xz")
 
 shutil.unpack_archive("/home/hacker/instructor_code.tar.xz", "/home/hacker/instructor_code")
 shutil.chown("/home/hacker/instructor_code","hacker","hacker")
+
+shutil.unpack_archive("/home/hacker/test_code.tar.xz", "/home/hacker/test_code")
+shutil.chown("/home/hacker/test_code","hacker","hacker")
 
 
 init_path.unlink()
