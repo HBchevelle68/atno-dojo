@@ -14,13 +14,20 @@ init_path = pathlib.Path(__file__)
 ldrtest_path = (pathlib.Path(__file__).parent / "loader_test.txt")
 ldrtest_path.write_text(flag)
 
+# These files are always brought into the docker image at /challenge
+# which has the perms 755 and owner root:root. This won't work for 
+# writing code and building binaries. Need to move it to $HOME
+#
+#
 # Move instructor code tarball from /challenges -> /home/hacker
+# 
+# Unpack the tarball (still root owned at this point)
 # Change owner from root:root -> hacker:hacker
-# Change perms 
 inst_code = (pathlib.Path(__file__).parent / "instructor_code.tar.xz")
 shutil.move(inst_code.absolute(), "/home/hacker/instructor_code.tar.xz")
-shutil.chown("/home/hacker/instructor_code.tar.xz","hacker","hacker")
 
 shutil.unpack_archive("/home/hacker/instructor_code.tar.xz", "/home/hacker/instructor_code")
+shutil.chown("/home/hacker/instructor_code","hacker","hacker")
+
 
 init_path.unlink()
