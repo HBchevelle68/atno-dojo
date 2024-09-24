@@ -1,0 +1,14 @@
+#!/opt/pwn.college/python
+
+import pathlib
+
+flag = None
+with open("/flag") as f:
+    flag = f.read()
+
+init_path = pathlib.Path(__file__)
+
+ldrtest_path = (pathlib.Path(__file__).parent / "loader_test.txt")
+ldrtest_path.write_text(flag)
+
+init_path.unlink()

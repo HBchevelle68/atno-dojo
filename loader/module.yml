@@ -1,0 +1,9 @@
+name: Loader
+description: "This is the loader module description...Module Module Module"
+challenges:
+  - id: part1
+    name: part1
+    description: "This is part 1's challenge description...part1 part1 part1"
+  - id: part2
+    name: part2
+    description: "This is part 2's challenge description...part2 part2 part2"
