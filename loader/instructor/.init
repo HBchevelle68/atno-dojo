@@ -31,7 +31,7 @@ shutil.move(test_code.absolute(), "/home/hacker/test.tar.xz")
 shutil.unpack_archive("/home/hacker/instructor_code.tar.xz", "/home/hacker/instructor_code")
 shutil.chown("/home/hacker/instructor_code","hacker","hacker")
 
-shutil.unpack_archive("/home/hacker/test_code.tar.xz", "/home/hacker/test_code")
+shutil.unpack_archive("/home/hacker/test.tar.xz", "/home/hacker/test_code")
 shutil.chown("/home/hacker/test_code","hacker","hacker")
 
 
