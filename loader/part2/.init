@@ -1,6 +1,7 @@
 #!/opt/pwn.college/python
 
 import pathlib
+import shutil
 
 flag = None
 with open("/flag") as f:
