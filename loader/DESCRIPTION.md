@@ -1,1 +1,1 @@
-This is the example LOADER dojo
+This is the LOADER dojo

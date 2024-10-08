@@ -6,9 +6,28 @@ flag = None
 with open("/flag") as f:
     flag = f.read()
 
+# DO NOT REMOVE
 init_path = pathlib.Path(__file__)
 
-ldrtest_path = (pathlib.Path(__file__).parent / "loader_test.txt")
-ldrtest_path.write_text(flag)
+# Code BEGINS here
 
+# Get tarball paths
+starter_code = (pathlib.Path(__file__).parent / "starter_code.tar.xz")
+ex1_code = (pathlib.Path(__file__).parent / "ex1.tar.xz")
+
+# Move the tarballs to where students have full access
+shutil.move(starter_code.absolute(), "/home/hacker/starter_code.tar.xz")
+shutil.move(ex1_code.absolute(), "/home/hacker/ex1.tar.xz")
+
+# Decompress tarballs
+shutil.unpack_archive("/home/hacker/starter_code.tar.xz", "/home/hacker/starter_code")
+shutil.unpack_archive("/home/hacker/ex1.tar.xz", "/home/hacker/ex1_code")
+
+# Chown the full dir so they can move at will
+shutil.chown("/home/hacker/starter_code","hacker","hacker")
+shutil.chown("/home/hacker/ex1_code","hacker","hacker")
+
+# Code STOPS here
+
+# DO NOT REMOVE
 init_path.unlink()

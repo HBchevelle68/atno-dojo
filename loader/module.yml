@@ -7,6 +7,6 @@ challenges:
   - id: part2
     name: part2
     description: "This is part 2's challenge description...part2 part2 part2"
-  - id: instructor
-    name: instructor
-    description: "This is for the instructor to test, if you see this and its meant to be for PROD you done messed up a-a-ron"
+  # - id: instructor
+  #   name: instructor
+  #   description: "This is for the instructor to test, if you see this and its meant to be for PROD you done messed up a-a-ron"
